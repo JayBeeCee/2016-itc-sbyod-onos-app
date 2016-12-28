@@ -45,7 +45,12 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidParameterException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -211,6 +216,53 @@ public class AppWebUser extends AbstractWebResource {
                 return Response.ok(ENABLED_FALSE).build();
             }
         }
+
+        // measurement time logging
+
+        // create file if not existing and log current time in first line
+        Charset utf8 = StandardCharsets.UTF_8;
+        String fileName = "/home/vagrant/measurement.csv";
+
+        PrintWriter printWriter = null;
+        File file = new File(fileName);
+
+        try{
+            if(!file.exists()) {
+                file.createNewFile();
+                printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+//                printWriter.write("time_serviceRequest" + "," + "time_measurementPoll");
+//                printWriter.write("/n");
+//                printWriter.flush();
+//                printWriter.close();
+            }
+            String currentTime = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+            printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+            printWriter.write(currentTime + ",");
+        } catch(IOException ioex) {
+            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
+        } finally {
+            if(printWriter != null) {
+                printWriter.flush();
+                printWriter.close();
+            }
+        }
+
+
+//        FileWriter fileWriter = null;
+//        String CSV_SEPARATOR = ",";
+//
+//        try{
+//            String currentTime = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+//            fileWriter.append(currentTime.toString());
+//            fileWriter.append(CSV_SEPARATOR.toString());
+//        } catch(Exception e) {
+//            log.debug("AppWebUser: Error while writing time into csv file: {}", e);
+//        }
+
+
+
+        // measurement time logging
+
 
         return Response.ok(ENABLED_TRUE).build();
     }
