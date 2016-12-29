@@ -21,6 +21,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.Sets;
+import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.onlab.packet.Ip4Address;
 import org.onosproject.net.Host;
 import org.onosproject.net.host.HostService;
@@ -62,6 +64,10 @@ import java.util.stream.Collectors;
 public class AppWebUser extends AbstractWebResource {
 
     private static final Logger log = getLogger(PortalManager.class);
+
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected MeasurementExtension measurementExtension;
+
 
     private static final String INVALID_PARAMETER = "INVALID_PARAMETER\n";
     private final ObjectNode ENABLED_TRUE = mapper().createObjectNode().put("enabled", true);
@@ -252,12 +258,12 @@ public class AppWebUser extends AbstractWebResource {
                 printWriter.close();
 
                 // enable AppWebConnectionClass to write next polling time once
-                //MeasurementExtension extension = get(MeasurementExtension.class);
-                //extension.setFlag(true);
+                MeasurementExtension extension = get(MeasurementExtension.class);
+                extension.setFlag(true);
 
 
-                AppWebConnection webConnection = get(AppWebConnection.class);
-                webConnection.setMeasurementFlag(true);
+                //AppWebConnection webConnection = get(AppWebConnection.class);
+                // webConnection.setMeasurementFlag(true);
             }
         }
 

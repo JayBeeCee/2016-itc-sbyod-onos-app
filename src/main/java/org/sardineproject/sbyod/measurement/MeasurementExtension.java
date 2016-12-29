@@ -16,6 +16,7 @@ public class MeasurementExtension implements Measurement{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
+
     private boolean measurementFlag = false;
 
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
