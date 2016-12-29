@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75547646-59b7-43b1-9a79-be3d9090c8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
     </list>
     <ignored path="sbyod.iws" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppWebConnection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppWebConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="105" column="65" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
+            <state relative-caret-position="444">
+              <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -89,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppWebUser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppWebUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="232" column="33" selection-start-line="232" selection-start-column="33" selection-end-line="232" selection-end-column="33" />
+            <state relative-caret-position="315">
+              <caret line="237" column="61" selection-start-line="237" selection-start-column="61" selection-end-line="237" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -124,9 +124,9 @@
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/DefaultConnectionRuleInstaller.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/DefaultConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/Connection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/DefaultConnectionStore.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
       </list>
     </option>
   </component>
@@ -735,12 +735,12 @@
       <workItem from="1477041465983" duration="32867000" />
       <workItem from="1478168103039" duration="697000" />
       <workItem from="1479468352300" duration="6626000" />
-      <workItem from="1482840845449" duration="4231000" />
+      <workItem from="1482840845449" duration="5536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44421000" />
+    <option name="totallyTimeSpent" value="45726000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebPortal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1228,14 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="105" column="65" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
@@ -1254,10 +1239,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebPortal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="232" column="33" selection-start-line="232" selection-start-column="33" selection-end-line="232" selection-end-column="33" />
+        <state relative-caret-position="315">
+          <caret line="237" column="61" selection-start-line="237" selection-start-column="61" selection-end-line="237" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
           <folding />
         </state>
       </provider>

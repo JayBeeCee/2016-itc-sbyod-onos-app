@@ -220,8 +220,8 @@ public class AppWebUser extends AbstractWebResource {
         // measurement time logging
 
         // create file if not existing and log current time in first line
-        Charset utf8 = StandardCharsets.UTF_8;
         String fileName = "/home/vagrant/measurement.csv";
+        String csvSeparator = ",";
 
         PrintWriter printWriter = null;
         File file = new File(fileName);
@@ -235,9 +235,10 @@ public class AppWebUser extends AbstractWebResource {
 //                printWriter.flush();
 //                printWriter.close();
             }
-            String currentTime = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+            String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
             printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
-            printWriter.write(currentTime + ",");
+            printWriter.write(currentTime);
+            printWriter.write(csvSeparator);
         } catch(IOException ioex) {
             log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
         } finally {
@@ -246,20 +247,6 @@ public class AppWebUser extends AbstractWebResource {
                 printWriter.close();
             }
         }
-
-
-//        FileWriter fileWriter = null;
-//        String CSV_SEPARATOR = ",";
-//
-//        try{
-//            String currentTime = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
-//            fileWriter.append(currentTime.toString());
-//            fileWriter.append(CSV_SEPARATOR.toString());
-//        } catch(Exception e) {
-//            log.debug("AppWebUser: Error while writing time into csv file: {}", e);
-//        }
-
-
 
         // measurement time logging
 

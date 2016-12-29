@@ -17,10 +17,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -119,9 +121,40 @@ public class AppWebConnection extends AbstractWebResource {
 
         }
 
-
-
         JsonNode result = mapper().createObjectNode().set("connections", arrayNode);
+
+
+        // measurement time logging
+
+        // create file if not existing and log current time
+        String fileName = "/home/vagrant/measurement.csv";
+        String csvSeparator = ",";
+        String newLine = "\n";
+
+        PrintWriter printWriter = null;
+        File file = new File(fileName);
+
+        try{
+            if(file.exists()) {
+                String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+                printWriter.write(currentTime);
+                printWriter.write(newLine);
+            } else {
+              log.debug("AppWebConnection: File does not exist");
+            }
+        } catch(IOException ioex) {
+            log.debug("AppWebConnection: Error while writing time into csv file: {}", ioex);
+        } finally {
+            if(printWriter != null) {
+                printWriter.flush();
+                printWriter.close();
+            }
+        }
+
+        // measurement time logging
+
+
         return Response.ok(result).build();
     }
 
