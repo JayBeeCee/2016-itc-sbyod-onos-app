@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 
 @Component(immediate = true)
+@org.apache.felix.scr.annotations.Service
 public class MeasurementExtension implements Measurement{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
