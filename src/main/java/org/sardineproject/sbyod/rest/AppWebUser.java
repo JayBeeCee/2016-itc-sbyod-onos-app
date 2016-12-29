@@ -28,6 +28,7 @@ import org.onosproject.net.Host;
 import org.onosproject.net.host.HostService;
 import org.onosproject.rest.AbstractWebResource;
 
+import org.sardineproject.sbyod.measurement.Measurement;
 import org.sardineproject.sbyod.measurement.MeasurementExtension;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.sardineproject.sbyod.portal.PortalService;
@@ -64,10 +65,6 @@ import java.util.stream.Collectors;
 public class AppWebUser extends AbstractWebResource {
 
     private static final Logger log = getLogger(PortalManager.class);
-
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
-    protected MeasurementExtension measurementExtension;
-
 
     private static final String INVALID_PARAMETER = "INVALID_PARAMETER\n";
     private final ObjectNode ENABLED_TRUE = mapper().createObjectNode().put("enabled", true);
@@ -258,7 +255,7 @@ public class AppWebUser extends AbstractWebResource {
                 printWriter.close();
 
                 // enable AppWebConnectionClass to write next polling time once
-                MeasurementExtension extension = get(MeasurementExtension.class);
+                Measurement extension = get(Measurement.class);
                 extension.setFlag(true);
 
 

@@ -12,6 +12,7 @@ import org.onosproject.rest.AbstractWebResource;
 import org.sardineproject.sbyod.cli.completer.DeviceIdCompleter;
 import org.sardineproject.sbyod.connection.Connection;
 import org.sardineproject.sbyod.connection.ConnectionStore;
+import org.sardineproject.sbyod.measurement.Measurement;
 import org.sardineproject.sbyod.measurement.MeasurementExtension;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.slf4j.Logger;
@@ -37,9 +38,6 @@ public class AppWebConnection extends AbstractWebResource {
 
     private static final Logger log = getLogger(PortalManager.class);
     private ConnectionStore connectionStore;
-
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
-    protected MeasurementExtension measurementExtension;
 
     //private boolean measurementFlag = false;
 
@@ -148,7 +146,7 @@ public class AppWebConnection extends AbstractWebResource {
 
         try{
             if(file.exists()) {
-                MeasurementExtension extension = get(MeasurementExtension.class);
+                Measurement extension = get(Measurement.class);
                 if(extension.getFlag() == true) {
                     extension.setFlag(false);
                 //if(this.measurementFlag == true){
