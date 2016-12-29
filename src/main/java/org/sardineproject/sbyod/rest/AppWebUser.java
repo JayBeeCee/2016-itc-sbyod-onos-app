@@ -26,6 +26,7 @@ import org.onosproject.net.Host;
 import org.onosproject.net.host.HostService;
 import org.onosproject.rest.AbstractWebResource;
 
+import org.sardineproject.sbyod.measurement.MeasurementExtension;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.sardineproject.sbyod.portal.PortalService;
 import org.sardineproject.sbyod.dns.DnsService;
@@ -251,8 +252,12 @@ public class AppWebUser extends AbstractWebResource {
                 printWriter.close();
 
                 // enable AppWebConnectionClass to write next polling time once
-                AppWebConnection webConnection = get(AppWebConnection.class);
-                webConnection.setMeasurementPollFlag(false);
+                MeasurementExtension extension = get(MeasurementExtension.class);
+                extension.setFlag(true);
+
+                
+                //AppWebConnection webConnection = get(AppWebConnection.class);
+                //webConnection.setMeasurementPollFlag(false);
             }
         }
 
