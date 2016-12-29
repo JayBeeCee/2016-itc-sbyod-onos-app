@@ -252,12 +252,12 @@ public class AppWebUser extends AbstractWebResource {
                 printWriter.close();
 
                 // enable AppWebConnectionClass to write next polling time once
-                MeasurementExtension extension = get(MeasurementExtension.class);
-                extension.setFlag(true);
+                //MeasurementExtension extension = get(MeasurementExtension.class);
+                //extension.setFlag(true);
 
-                
-                //AppWebConnection webConnection = get(AppWebConnection.class);
-                //webConnection.setMeasurementPollFlag(false);
+
+                AppWebConnection webConnection = get(AppWebConnection.class);
+                webConnection.setMeasurementFlag(true);
             }
         }
 

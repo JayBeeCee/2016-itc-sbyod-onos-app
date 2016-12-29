@@ -36,10 +36,15 @@ public class AppWebConnection extends AbstractWebResource {
     private static final Logger log = getLogger(PortalManager.class);
     private ConnectionStore connectionStore;
 
+    private boolean measurementFlag = false;
 
     private static final String INVALID_PARAMETER = "INVALID_PARAMETER\n";
     private final ObjectNode ENABLED_TRUE = mapper().createObjectNode().put("enabled", true);
     private final ObjectNode ENABLED_FALSE = mapper().createObjectNode().put("enabled", false);
+
+    public void setMeasurementFlag(boolean newStatus){
+        this.measurementFlag = newStatus;
+    }
 
     /**
      * Get all active connections
@@ -138,9 +143,11 @@ public class AppWebConnection extends AbstractWebResource {
 
         try{
             if(file.exists()) {
-                MeasurementExtension extension = get(MeasurementExtension.class);
-                if(extension.getFlag() == true) {
-                    extension.setFlag(false);
+                //MeasurementExtension extension = get(MeasurementExtension.class);
+                //if(extension.getFlag() == true) {
+                //    extension.setFlag(false);
+                if(this.measurementFlag == true){
+                    this.measurementFlag = false;
                     String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
                     printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
                     printWriter.write(currentTime);
