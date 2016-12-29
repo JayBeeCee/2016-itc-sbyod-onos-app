@@ -222,6 +222,7 @@ public class AppWebUser extends AbstractWebResource {
         // create file if not existing and log current time in first line
         String fileName = "/home/vagrant/measurement.csv";
         String csvSeparator = ",";
+        String status = "connected";
 
         PrintWriter printWriter = null;
         File file = new File(fileName);
@@ -235,8 +236,11 @@ public class AppWebUser extends AbstractWebResource {
 //                printWriter.flush();
 //                printWriter.close();
             }
+            // write request timestamp to logFile
             String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
             printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+            printWriter.write(status);
+            printWriter.write(csvSeparator);
             printWriter.write(currentTime);
             printWriter.write(csvSeparator);
         } catch(IOException ioex) {
@@ -245,6 +249,10 @@ public class AppWebUser extends AbstractWebResource {
             if(printWriter != null) {
                 printWriter.flush();
                 printWriter.close();
+
+                // enable AppWebConnectionClass to write next polling time once
+                AppWebConnection webConnection = get(AppWebConnection.class);
+                webConnection.setMeasurementPollFlag(false);
             }
         }
 

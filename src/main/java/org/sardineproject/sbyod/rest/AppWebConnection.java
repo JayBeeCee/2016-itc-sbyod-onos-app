@@ -35,10 +35,16 @@ public class AppWebConnection extends AbstractWebResource {
     private static final Logger log = getLogger(PortalManager.class);
     private ConnectionStore connectionStore;
 
+    // prevents writing polling time more than once after request got triggered
+    public boolean measurementPollFlag = true;
+
     private static final String INVALID_PARAMETER = "INVALID_PARAMETER\n";
     private final ObjectNode ENABLED_TRUE = mapper().createObjectNode().put("enabled", true);
     private final ObjectNode ENABLED_FALSE = mapper().createObjectNode().put("enabled", false);
 
+    public void setMeasurementPollFlag(boolean newFlagStatus){
+        this.measurementPollFlag = newFlagStatus;
+    }
     /**
      * Get all active connections
      *
@@ -136,10 +142,13 @@ public class AppWebConnection extends AbstractWebResource {
 
         try{
             if(file.exists()) {
-                String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-                printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
-                printWriter.write(currentTime);
-                printWriter.write(newLine);
+                if(this.measurementPollFlag == false) {
+                    this.measurementPollFlag = true;
+                    String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                    printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+                    printWriter.write(currentTime);
+                    printWriter.write(newLine);
+                }
             } else {
               log.debug("AppWebConnection: File does not exist");
             }
