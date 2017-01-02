@@ -1,11 +1,13 @@
 package org.sardineproject.sbyod.rest;
 
+import com.fasterxml.jackson.databind.deser.std.MapEntryDeserializer;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.onosproject.rest.AbstractWebResource;
 import org.sardineproject.sbyod.measurement.Measurement;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.slf4j.Logger;
 
+import javax.print.DocFlavor;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -32,6 +34,7 @@ public class AppWebMeasurement extends AbstractWebResource {
      */
     @POST
     @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
     @Path("/{location}")
     public Response setLogFile(@PathParam("location") String location) {
 
@@ -48,6 +51,7 @@ public class AppWebMeasurement extends AbstractWebResource {
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
     @Path("/")
     public Response getLogFile() {
 
