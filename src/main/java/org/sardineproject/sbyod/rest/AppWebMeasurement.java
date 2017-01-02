@@ -35,7 +35,7 @@ public class AppWebMeasurement extends AbstractWebResource {
     @Path("/{location}")
     public Response setLogFile(@PathParam("location") String location) {
 
-        log.info("AppWebMeasurements: Location{}", location);
+        log.info("AppWebMeasurements_POST: Location{}", location);
 
         Measurement measurement = get(Measurement.class);
         measurement.setLogFile(location);
@@ -47,12 +47,14 @@ public class AppWebMeasurement extends AbstractWebResource {
      * @return logFile location
      */
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     @Path("/")
     public Response getLogFile() {
 
         Measurement measurement = get(Measurement.class);
         String location = measurement.getLogFile();
-        return Response.ok(location.toCharArray()).build();
+        log.info("AppWebMeasurements_GET: Location{}", location);
+        return Response.ok(location.toString()).build();
     }
 
 }

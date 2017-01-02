@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75547646-59b7-43b1-9a79-be3d9090c8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebApplication.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java" />
     </list>
     <ignored path="sbyod.iws" />
@@ -63,8 +62,8 @@
       <file leaf-file-name="AppWebMeasurement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
+            <state relative-caret-position="579">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,8 +141,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java" />
       </list>
     </option>
   </component>
@@ -872,12 +871,12 @@
       <workItem from="1477041465983" duration="32867000" />
       <workItem from="1478168103039" duration="697000" />
       <workItem from="1479468352300" duration="6626000" />
-      <workItem from="1482840845449" duration="21466000" />
+      <workItem from="1482840845449" duration="21938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61656000" />
+    <option name="totallyTimeSpent" value="62128000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1369,8 +1368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebMeasurement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
+        <state relative-caret-position="579">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
