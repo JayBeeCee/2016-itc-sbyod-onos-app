@@ -16,6 +16,7 @@ public class MeasurementExtension implements Measurement{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
+    public String logFile = "/home/vagrant/measurements/measurement.csv";
 
     private boolean measurementFlag = false;
 
@@ -41,5 +42,15 @@ public class MeasurementExtension implements Measurement{
     @Override
     public boolean getFlag(){
         return this.measurementFlag;
+    }
+
+    @Override
+    public void setLogFile(String logFile){
+        this.logFile = logFile;
+    }
+
+    @Override
+    public String getLogFile(){
+        return this.logFile;
     }
 }

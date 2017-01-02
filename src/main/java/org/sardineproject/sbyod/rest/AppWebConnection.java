@@ -137,20 +137,20 @@ public class AppWebConnection extends AbstractWebResource {
         // measurement time logging
 
         // create file if not existing and log current time
-        String fileName = "/home/vagrant/measurement.csv";
         String csvSeparator = ",";
         String newLine = "\n";
-
+        Measurement measurementObj = get(Measurement.class);
+        String logFile = measurementObj.getLogFile();
+        File file = new File(logFile);
         PrintWriter printWriter = null;
-        File file = new File(fileName);
 
         try{
             if(file.exists()) {
-                Measurement extension = get(Measurement.class);
-                if(extension.getFlag() == true) {
-                    extension.setFlag(false);
+                //Measurement extension = get(Measurement.class);
+                if(measurementObj.getFlag() == true) {
+                    measurementObj.setFlag(false);
                     String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-                    printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
+                    printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
                     printWriter.write(currentTime);
                     printWriter.write(newLine);
                 }

@@ -10,6 +10,8 @@ public interface Measurement {
 
     boolean getFlag();
 
+    void setLogFile(String logFile);
 
+    String getLogFile();
 
 }
