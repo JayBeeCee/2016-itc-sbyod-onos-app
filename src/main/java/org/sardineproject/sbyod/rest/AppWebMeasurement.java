@@ -19,7 +19,6 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 @Path("/measurements")
 @Produces("text/plain")
-@Consumes("text/plain")
 public class AppWebMeasurement extends AbstractWebResource {
 
     private static final Logger log = getLogger(PortalManager.class);
@@ -35,9 +34,9 @@ public class AppWebMeasurement extends AbstractWebResource {
      * @return enabled true if logFile got saved
      */
     @POST
+    @Path("/{location}")
     @Produces("text/plain")
     @Consumes("text/plain")
-    @Path("/{location}")
     public Response setLogFile(@PathParam("location") String location) {
 
         log.info("AppWebMeasurements_POST: Location{}", location);
@@ -52,9 +51,9 @@ public class AppWebMeasurement extends AbstractWebResource {
      * @return logFile location
      */
     @GET
+    @Path("/")
     @Produces("text/plain")
     @Consumes("text/plain")
-    @Path("/")
     public Response getLogFile() {
 
         Measurement measurement = get(Measurement.class);
