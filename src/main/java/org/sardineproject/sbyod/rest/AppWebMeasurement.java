@@ -33,8 +33,8 @@ public class AppWebMeasurement extends AbstractWebResource {
      * @return enabled true if logFile got saved
      */
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces("text/plain")
+    @Consumes("text/plain")
     @Path("/{location}")
     public Response setLogFile(@PathParam("location") String location) {
 
@@ -50,8 +50,8 @@ public class AppWebMeasurement extends AbstractWebResource {
      * @return logFile location
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces("text/plain")
+    @Consumes("text/plain")
     @Path("/")
     public Response getLogFile() {
 
