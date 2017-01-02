@@ -52,7 +52,7 @@ public class AppWebMeasurement extends AbstractWebResource {
 
         Measurement measurement = get(Measurement.class);
         String location = measurement.getLogFile();
-        return Response.ok(location).build();
+        return Response.ok(location.toCharArray()).build();
     }
 
 }
