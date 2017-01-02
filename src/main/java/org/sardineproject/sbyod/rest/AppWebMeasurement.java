@@ -18,6 +18,8 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Define Settings for Measurements
  */
 @Path("/measurements")
+@Produces("text/plain")
+@Consumes("text/plain")
 public class AppWebMeasurement extends AbstractWebResource {
 
     private static final Logger log = getLogger(PortalManager.class);
