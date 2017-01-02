@@ -36,8 +36,8 @@ public class AppWebMeasurement extends AbstractWebResource {
      */
     @POST
     @Path("/{location}")
-    @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces("text/plain")
+    @Consumes("text/plain")
     public Response setLogFile(@PathParam("location") String location) {
 
         log.info("AppWebMeasurements_POST: Location{}", location);
