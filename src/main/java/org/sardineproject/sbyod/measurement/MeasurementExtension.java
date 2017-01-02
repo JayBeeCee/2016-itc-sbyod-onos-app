@@ -16,7 +16,7 @@ public class MeasurementExtension implements Measurement{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
-    public String logFile = "/home/vagrant/measurements/measurement.csv";
+    private String logFile = "/home/vagrant/measurements/measurement.csv";
 
     private boolean measurementFlag = false;
 

@@ -230,6 +230,7 @@ public class AppWebUser extends AbstractWebResource {
         String csvSeparator = ",";
         Measurement measurementObj = get(Measurement.class);
         String logFile = measurementObj.getLogFile();
+        log.debug("AppWebUser_POST: LogFile: {}", logFile);
         File file = new File(logFile);
 
         try{
@@ -326,6 +327,7 @@ public class AppWebUser extends AbstractWebResource {
         String csvSeparator = ",";
         Measurement measurementObj = get(Measurement.class);
         String logFile = measurementObj.getLogFile();
+        log.debug("AppWebUser_DEL: LogFile: {}", logFile);
         File file = new File(logFile);
 
         try{

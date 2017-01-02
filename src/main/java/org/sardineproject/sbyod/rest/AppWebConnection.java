@@ -142,6 +142,7 @@ public class AppWebConnection extends AbstractWebResource {
         Measurement measurementObj = get(Measurement.class);
         String logFile = measurementObj.getLogFile();
         File file = new File(logFile);
+        log.debug("AppWebConnection: LogFile: {}", logFile);
         PrintWriter printWriter = null;
 
         try{

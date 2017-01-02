@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75547646-59b7-43b1-9a79-be3d9090c8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/Measurement.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/Measurement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" afterPath="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="AppWebConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+            <state relative-caret-position="279">
+              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -73,8 +72,8 @@
       <file leaf-file-name="AppWebUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="346" column="36" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+            <state relative-caret-position="473">
+              <caret line="256" column="37" selection-start-line="256" selection-start-column="37" selection-end-line="256" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -93,13 +92,13 @@
       <file leaf-file-name="MeasurementExtension.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+            <state relative-caret-position="315">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
-                <element signature="e#1303#1304#0" expanded="true" />
-                <element signature="e#1341#1342#0" expanded="true" />
-                <element signature="e#1388#1389#0" expanded="true" />
-                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#1304#1305#0" expanded="true" />
+                <element signature="e#1342#1343#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
+                <element signature="e#1424#1425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,8 +132,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/Connection.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/connection/DefaultConnectionStore.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/Measurement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java" />
       </list>
     </option>
@@ -864,12 +863,12 @@
       <workItem from="1477041465983" duration="32867000" />
       <workItem from="1478168103039" duration="697000" />
       <workItem from="1479468352300" duration="6626000" />
-      <workItem from="1482840845449" duration="16508000" />
+      <workItem from="1482840845449" duration="17452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56698000" />
+    <option name="totallyTimeSpent" value="57642000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1321,14 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/Measurement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebPortal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="639">
@@ -1339,31 +1330,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/Measurement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="346" column="36" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+        <state relative-caret-position="210">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+        <state relative-caret-position="279">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/rest/AppWebUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="256" column="37" selection-start-line="256" selection-start-column="37" selection-end-line="256" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/measurement/MeasurementExtension.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        <state relative-caret-position="315">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
-            <element signature="e#1303#1304#0" expanded="true" />
-            <element signature="e#1341#1342#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
-            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1304#1305#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
           </folding>
         </state>
       </provider>
