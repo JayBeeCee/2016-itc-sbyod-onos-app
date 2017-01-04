@@ -244,7 +244,7 @@ public class AppWebUser extends AbstractWebResource {
 //            }
             if(file.exists()){
                 // write request timestamp to logFile
-                String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
                 printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
                 printWriter.write(status);
                 printWriter.write(csvSeparator);
@@ -333,7 +333,7 @@ public class AppWebUser extends AbstractWebResource {
         try{
             if(file.exists()) {
                 // write request timestamp to logFile
-                String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
                 printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
                 printWriter.write(status);
                 printWriter.write(csvSeparator);

@@ -57,7 +57,6 @@ public class AppWebMeasurement extends AbstractWebResource {
     @Produces("text/plain")
     @Consumes("text/plain")
     public Response getLogFile() {
-
         Measurement measurement = get(Measurement.class);
         String location = measurement.getLogFile();
         log.info("AppWebMeasurements_GET: Location{}", location);

@@ -150,7 +150,7 @@ public class AppWebConnection extends AbstractWebResource {
                 //Measurement extension = get(Measurement.class);
                 if(measurementObj.getFlag() == true) {
                     measurementObj.setFlag(false);
-                    String currentTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                    String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
                     printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
                     printWriter.write(currentTime);
                     printWriter.write(newLine);
