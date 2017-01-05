@@ -1,3 +1,4 @@
+/*
 package org.sardineproject.sbyod.rest;
 
 import com.fasterxml.jackson.databind.deser.std.MapEntryDeserializer;
@@ -15,9 +16,11 @@ import javax.ws.rs.core.Response;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+*/
 /**
  * Define Settings for Measurements
- */
+ *//*
+
 @Path("/measurements")
 @Produces("text/plain")
 @Consumes("text/plain")
@@ -30,11 +33,13 @@ public class AppWebMeasurement extends AbstractWebResource {
     private final ObjectNode ENABLED_FALSE = mapper().createObjectNode().put("enabled", false);
 
 
-    /**
+    */
+/**
      * Define the logFile Location.
      * @param location location of the logFile
      * @return enabled true if logFile got saved
-     */
+     *//*
+
     @POST
     @Path("/{location}")
     @Produces("text/plain")
@@ -48,10 +53,12 @@ public class AppWebMeasurement extends AbstractWebResource {
         return Response.ok(ENABLED_TRUE).build();
     }
 
-    /**
+    */
+/**
      * Returns the logFile Location
      * @return logFile location
-     */
+     *//*
+
     @GET
     @Path("/")
     @Produces("text/plain")
@@ -66,3 +73,4 @@ public class AppWebMeasurement extends AbstractWebResource {
 }
 
 
+*/
