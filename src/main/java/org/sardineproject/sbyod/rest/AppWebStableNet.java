@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * Created by Bene on 11.01.17.
+ * Define the StableNet Service IP and Port
  */
 @Path("/stablenet")
 public class AppWebStableNet extends AbstractWebResource {
@@ -36,7 +36,7 @@ public class AppWebStableNet extends AbstractWebResource {
     @Path("/ip/{ip}/port/{port}")
     public Response setPortal(@PathParam("ip") String ip,
                               @PathParam("port") String port) {
-        log.debug("AppWebStableNet: Adding StableNet server with IP = {} and port = {}", ip, port);
+        log.info("AppWebStableNet: Adding StableNet server with IP = {} and port = {}", ip, port);
 
         if (ip == null || port == null)
             return Response.status(Response.Status.PRECONDITION_FAILED).build();

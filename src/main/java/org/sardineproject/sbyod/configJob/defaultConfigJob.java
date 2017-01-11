@@ -62,8 +62,8 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
         // prepare REST call
-        String server = "http://" + this.snIP + ":" + this.snPort;
-        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(username, password);
+        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
+        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1039";
         Client client = Client.create();
@@ -92,6 +92,8 @@ public class defaultConfigJob implements configJob{
         // do REST call
         ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 
+        log.info("REST OUTPUT: {}", response.toString());
+
         if (response.getStatus() != 200)
         {
             throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
@@ -110,8 +112,8 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
         // do prepare REST call
-        String server = "http://" + this.snIP + ":" + this.snPort;
-        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(username, password);
+        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
+        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1041";
         Client client = Client.create();
@@ -140,6 +142,8 @@ public class defaultConfigJob implements configJob{
         // do REST call
         ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 
+        log.info("REST OUTPUT: {}", response.toString());
+
 
         if (response.getStatus() != 200)
         {
@@ -148,7 +152,6 @@ public class defaultConfigJob implements configJob{
 
         JsonParser jsonParser = new JsonParser();
         JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
-
     }
 
     @Override
