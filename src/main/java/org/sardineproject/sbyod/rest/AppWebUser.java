@@ -28,6 +28,7 @@ import org.onosproject.net.Host;
 import org.onosproject.net.host.HostService;
 import org.onosproject.rest.AbstractWebResource;
 
+import org.sardineproject.sbyod.configJob.configJob;
 import org.sardineproject.sbyod.measurement.Measurement;
 import org.sardineproject.sbyod.measurement.MeasurementExtension;
 import org.sardineproject.sbyod.portal.PortalManager;
@@ -260,11 +261,17 @@ public class AppWebUser extends AbstractWebResource {
 
                 // enable AppWebConnectionClass to write next polling time once
                 //Measurement extension = get(Measurement.class);
-                measurementObj.setFlag(true);
+
+                // TODO make this flag REST accessable
+                //measurementObj.setFlag(true);
             }
         }
 
         // measurement time logging
+
+        // trigger config job establish in StableNet
+        configJob configJob = get(configJob.class);
+        configJob.startConfigJob_conEstablish();
 
 
         return Response.ok(ENABLED_TRUE).build();
@@ -351,11 +358,17 @@ public class AppWebUser extends AbstractWebResource {
 
                 // enable AppWebConnectionClass to write next polling time once
                 //Measurement extension = get(Measurement.class);
-                measurementObj.setFlag(true);
+
+                //TODO make this flag REST accessable
+                //measurementObj.setFlag(true);
             }
         }
 
-        // measurement time logging
+        // end: time measurement
+
+        // trigger config job establish in StableNet
+        configJob configJob = get(configJob.class);
+        configJob.startConfigJob_conRemove();
 
         return Response.ok(ENABLED_FALSE).build();
     }
