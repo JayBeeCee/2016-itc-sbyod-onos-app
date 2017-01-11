@@ -30,6 +30,7 @@ public class AppWebApplication extends AbstractWebApplication {
     public Set<Class<?>> getClasses() {
         return getClasses(
                 AppWebConnection.class,
+                AppWebStableNet.class,
                 AppWebUser.class,
                 AppWebPortal.class,
                 AppWebService.class,
