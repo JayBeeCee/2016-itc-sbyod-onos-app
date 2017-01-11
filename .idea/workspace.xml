@@ -80,8 +80,8 @@
       <file leaf-file-name="defaultConfigJob.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/configJob/defaultConfigJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+            <state relative-caret-position="-21">
+              <caret line="100" column="98" selection-start-line="100" selection-start-column="98" selection-end-line="100" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -906,12 +906,12 @@
       <workItem from="1478168103039" duration="697000" />
       <workItem from="1479468352300" duration="6626000" />
       <workItem from="1482840845449" duration="28532000" />
-      <workItem from="1484133374778" duration="7561000" />
+      <workItem from="1484133374778" duration="8415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76283000" />
+    <option name="totallyTimeSpent" value="77137000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1387,8 +1387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/sardineproject/sbyod/configJob/defaultConfigJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+        <state relative-caret-position="-21">
+          <caret line="100" column="98" selection-start-line="100" selection-start-column="98" selection-end-line="100" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
