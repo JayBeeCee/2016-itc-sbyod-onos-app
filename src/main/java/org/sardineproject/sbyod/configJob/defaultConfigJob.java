@@ -29,7 +29,7 @@ public class defaultConfigJob implements configJob{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
-    private String snIP = "127.0.0.1";
+    private String snIP = "172.16.150.";
     private String snPort = "5443";
 
     private String username = "Infosim";
@@ -105,7 +105,7 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
         // do prepare REST call
-        String server = "https://" + this.snIP + ":" + this.snPort;
+        String server = "http://" + this.snIP + ":" + this.snPort;
         HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(username, password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1041";
