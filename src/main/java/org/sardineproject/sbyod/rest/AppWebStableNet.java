@@ -17,6 +17,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 /**
  * Created by Bene on 11.01.17.
  */
+@Path("/stablenet")
 public class AppWebStableNet extends AbstractWebResource {
 
     private static final Logger log = getLogger(configJob.class);
