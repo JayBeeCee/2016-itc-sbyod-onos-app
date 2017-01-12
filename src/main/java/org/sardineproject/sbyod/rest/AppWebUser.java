@@ -225,49 +225,44 @@ public class AppWebUser extends AbstractWebResource {
         // measurement time logging
 
         // create file if not existing and log current time in first line
-        String status = "connected";
-
-        PrintWriter printWriter = null;
-        String csvSeparator = ",";
-        Measurement measurementObj = get(Measurement.class);
-        String logFile = measurementObj.getLogFile();
-        log.debug("AppWebUser_POST: LogFile: {}", logFile);
-        File file = new File(logFile);
-
-        try{
-//            if(!file.exists()) {
-//                file.createNewFile();
-//                printWriter = new PrintWriter((new FileOutputStream(fileName, true)));
-////                printWriter.write("time_serviceRequest" + "," + "time_measurementPoll");
-////                printWriter.write("/n");
-////                printWriter.flush();
-////                printWriter.close();
+//        String status = "connected";
+//
+//        PrintWriter printWriter = null;
+//        String csvSeparator = ",";
+//        Measurement measurementObj = get(Measurement.class);
+//        String logFile = measurementObj.getLogFile();
+//        log.debug("AppWebUser_POST: LogFile: {}", logFile);
+//        File file = new File(logFile);
+//
+//        try{
+//            if(file.exists()){
+//                // write request timestamp to logFile
+//                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
+//                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
+//                printWriter.write(status);
+//                printWriter.write(csvSeparator);
+//                printWriter.write(currentTime);
+//                printWriter.write(csvSeparator);
 //            }
-            if(file.exists()){
-                // write request timestamp to logFile
-                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-                printWriter.write(status);
-                printWriter.write(csvSeparator);
-                printWriter.write(currentTime);
-                printWriter.write(csvSeparator);
-            }
-        } catch(IOException ioex) {
-            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
-        } finally {
-            if(printWriter != null) {
-                printWriter.flush();
-                printWriter.close();
-
-                // enable AppWebConnectionClass to write next polling time once
-                //Measurement extension = get(Measurement.class);
-
-                // TODO make this flag REST accessable
-                //measurementObj.setFlag(true);
-            }
-        }
+//        } catch(IOException ioex) {
+//            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
+//        } finally {
+//            if(printWriter != null) {
+//                printWriter.flush();
+//                printWriter.close();
+//
+//                // enable AppWebConnectionClass to write next polling time once
+//                //Measurement extension = get(Measurement.class);
+//
+//                // TODO make this flag REST accessable
+//                //measurementObj.setFlag(true);
+//            }
+//        }
 
         // measurement time logging
+        Measurement measurement = get(Measurement.class);
+        boolean status_connected = true;
+        measurement.logStartTime(status_connected);
 
         // trigger config job establish in StableNet
         configJob configJob = get(configJob.class);
@@ -329,42 +324,45 @@ public class AppWebUser extends AbstractWebResource {
         }
 
         // create file if not existing and log current time in first line
-        String status = "disconnected";
-        PrintWriter printWriter = null;
-        String csvSeparator = ",";
-        Measurement measurementObj = get(Measurement.class);
-        String logFile = measurementObj.getLogFile();
-        log.debug("AppWebUser_DEL: LogFile: {}", logFile);
-        File file = new File(logFile);
+//        String status = "disconnected";
+//        PrintWriter printWriter = null;
+//        String csvSeparator = ",";
+//        Measurement measurementObj = get(Measurement.class);
+//        String logFile = measurementObj.getLogFile();
+//        log.debug("AppWebUser_DEL: LogFile: {}", logFile);
+//        File file = new File(logFile);
+//
+//        try{
+//            if(file.exists()) {
+//                // write request timestamp to logFile
+//                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
+//                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
+//                printWriter.write(status);
+//                printWriter.write(csvSeparator);
+//                printWriter.write(currentTime);
+//                printWriter.write(csvSeparator);
+//            } else {
+//                log.debug("AppWebUser: File does not exist");
+//            }
+//        } catch(IOException ioex) {
+//            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
+//        } finally {
+//            if(printWriter != null) {
+//                printWriter.flush();
+//                printWriter.close();
+//
+//                // enable AppWebConnectionClass to write next polling time once
+//                //Measurement extension = get(Measurement.class);
+//
+//                //TODO make this flag REST accessable
+//                //measurementObj.setFlag(true);
+//            }
+//        }
 
-        try{
-            if(file.exists()) {
-                // write request timestamp to logFile
-                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-                printWriter.write(status);
-                printWriter.write(csvSeparator);
-                printWriter.write(currentTime);
-                printWriter.write(csvSeparator);
-            } else {
-                log.debug("AppWebUser: File does not exist");
-            }
-        } catch(IOException ioex) {
-            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
-        } finally {
-            if(printWriter != null) {
-                printWriter.flush();
-                printWriter.close();
-
-                // enable AppWebConnectionClass to write next polling time once
-                //Measurement extension = get(Measurement.class);
-
-                //TODO make this flag REST accessable
-                //measurementObj.setFlag(true);
-            }
-        }
-
-        // end: time measurement
+        // time logging
+        Measurement measurement = get(Measurement.class);
+        boolean status_connected = false;
+        measurement.logStartTime(status_connected);
 
         // trigger config job establish in StableNet
         configJob configJob = get(configJob.class);

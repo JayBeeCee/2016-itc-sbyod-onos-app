@@ -6,6 +6,10 @@ package org.sardineproject.sbyod.measurement;
 public interface Measurement {
     String APP_ID = "org.sardineproject.sbyod";
 
+    void logStartTime(boolean status_Connected);
+
+    void logEndTime();
+
     void setFlag(boolean newFlag);
 
     boolean getFlag();

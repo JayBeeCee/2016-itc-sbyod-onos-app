@@ -6,6 +6,13 @@ import org.onosproject.core.CoreService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by Bene on 29.12.16.
  */
@@ -17,6 +24,9 @@ public class MeasurementExtension implements Measurement{
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
     private String logFile = "/home/vagrant/measurements/measurement.csv";
+    private String csvSeparator = ",";
+    private String newLine = "\n";
+
 
     private boolean measurementFlag = false;
 
@@ -32,6 +42,69 @@ public class MeasurementExtension implements Measurement{
     @Deactivate
     protected void deactivate() {
         log.info("Stopped MeasurementExtension {}", appId.toString());
+    }
+
+    @Override
+    public void logStartTime(boolean status_connected){
+        String status = "connected";
+
+        if( status_connected == false){
+            status = "disconnected";
+        }
+
+        PrintWriter printWriter = null;
+        File file = new File(this.logFile);
+
+        try{
+            if(file.exists()) {
+                // write request timestamp to logFile
+                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
+                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
+                printWriter.write(status);
+                printWriter.write(this.csvSeparator);
+                printWriter.write(currentTime);
+                printWriter.write(this.csvSeparator);
+            } else {
+                log.debug("MeasurementExtension: File does not exist");
+            }
+        } catch(IOException ioex) {
+            log.debug("MeasurementExtension: Error while writing time into csv file: {}", ioex);
+        } finally {
+            if (printWriter != null) {
+                printWriter.flush();
+                printWriter.close();
+                //TODO make this flag REST accessable
+                //measurementObj.setFlag(true);
+            }
+        }
+    }
+
+    @Override
+    public void logEndTime(){
+        PrintWriter printWriter = null;
+        File file = new File(this.logFile);
+
+        try{
+            if(file.exists()) {
+                // write request timestamp to logFile
+                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
+                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
+                printWriter.write(currentTime);
+                printWriter.write(this.newLine);
+            } else {
+                log.debug("MeasurementExtension: File does not exist");
+            }
+        } catch(IOException ioex) {
+            log.debug("MeasurementExtension: Error while writing time into csv file: {}", ioex);
+        } finally {
+            if (printWriter != null) {
+                printWriter.flush();
+                printWriter.close();
+                //TODO make this flag REST accessable
+                //measurementObj.setFlag(true);
+            }
+        }
+
     }
 
     @Override

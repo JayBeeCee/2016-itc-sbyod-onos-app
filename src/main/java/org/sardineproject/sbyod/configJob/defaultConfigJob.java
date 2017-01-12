@@ -32,7 +32,7 @@ public class defaultConfigJob implements configJob{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
-    private String snIP = "172.16.150.38";
+    private String snIP = "127.0.0.1";
     private String snPort = "5443";
     private StableNetConnection sn;
 
@@ -57,12 +57,6 @@ public class defaultConfigJob implements configJob{
 
     @Override
     public void startConfigJob_conEstablish() {
-        String newLine = "\n";
-        Measurement measurementObj = get(Measurement.class);
-        String logFile = measurementObj.getLogFile();
-        File file = new File(logFile);
-        PrintWriter printWriter = null;
-
 
         this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort, this.username, this.password);
         log.info("StableNet server: {}", this.sn);
@@ -71,24 +65,10 @@ public class defaultConfigJob implements configJob{
         log.info("GET -> {}", this.sn.getServer() + restURL + configJobID);
         WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
 
-        // log time of REST call
-        try{
-            if(file.exists()) {
-                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-                printWriter.write(currentTime);
-                printWriter.write(newLine);
-            } else {
-                log.debug("defaultConfigJob: File does not exist");
-            }
-        } catch(IOException ioex) {
-            log.debug("defaultConfigJob: Error while writing time into csv file: {}", ioex);
-        } finally {
-            if(printWriter != null) {
-                printWriter.flush();
-                printWriter.close();
-            }
-        }
+
+        // time logging
+        Measurement measurement = get(Measurement.class);
+        measurement.logEndTime();
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
@@ -102,11 +82,7 @@ public class defaultConfigJob implements configJob{
 
     @Override
     public void startConfigJob_conRemove(){
-        String newLine = "\n";
-        Measurement measurementObj = get(Measurement.class);
-        String logFile = measurementObj.getLogFile();
-        File file = new File(logFile);
-        PrintWriter printWriter = null;
+
 
         // do prepare REST call
         this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort, this.username, this.password);
@@ -122,24 +98,9 @@ public class defaultConfigJob implements configJob{
 //        client.addFilter(authFilter);
 //        WebResource webResource = client.resource(server + restURL + configJobID);
 
-        //log time of REST call
-        try{
-            if(file.exists()) {
-                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-                printWriter.write(currentTime);
-                printWriter.write(newLine);
-            } else {
-                log.debug("defaultConfigJob: File does not exist");
-            }
-        } catch(IOException ioex) {
-            log.debug("defaultConfigJob: Error while writing time into csv file: {}", ioex);
-        } finally {
-            if(printWriter != null) {
-                printWriter.flush();
-                printWriter.close();
-            }
-        }
+        // time logging
+        Measurement measurement = get(Measurement.class);
+        measurement.logEndTime();
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
