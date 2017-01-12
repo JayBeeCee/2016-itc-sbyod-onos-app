@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * Define the StableNet Service IP and Port
+ * Define the StableNet Server IP and Port
  */
 @Path("/stablenet")
 public class AppWebStableNet extends AbstractWebResource {

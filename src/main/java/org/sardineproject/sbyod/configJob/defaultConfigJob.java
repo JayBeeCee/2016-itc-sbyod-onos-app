@@ -7,6 +7,7 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import org.apache.felix.scr.annotations.*;
 import org.onosproject.core.ApplicationId;
 import org.onosproject.core.CoreService;
+import org.sardineproject.sbyod.StableNet.StableNetConnection;
 import org.sardineproject.sbyod.measurement.Measurement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,7 @@ public class defaultConfigJob implements configJob{
     public ApplicationId appId;
     private String snIP = "127.0.0.1";
     private String snPort = "5443";
+    private StableNetConnection sn;
 
     private String username = "infosim";
     private String password = "stablenet";
@@ -61,14 +63,21 @@ public class defaultConfigJob implements configJob{
         File file = new File(logFile);
         PrintWriter printWriter = null;
 
-        // prepare REST call
-        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
-        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
+
+
+        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort + "", this.username, this.password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1039";
-        Client client = Client.create();
-        client.addFilter(authFilter);
-        WebResource webResource = client.resource(server + restURL + configJobID);
+        WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
+
+
+//        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
+//        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
+//        String restURL = "/rest/jobs/start/";
+//        String configJobID = "1039";
+//        Client client = Client.create();
+//        client.addFilter(authFilter);
+//        WebResource webResource = client.resource(server + restURL + configJobID);
 
         // log time of REST call
         try{
@@ -92,8 +101,6 @@ public class defaultConfigJob implements configJob{
         // do REST call
         ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 
-        log.info("REST OUTPUT: {}", response.toString());
-
         if (response.getStatus() != 200)
         {
             throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
@@ -112,13 +119,18 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
         // do prepare REST call
-        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
-        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
+        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort + "", this.username, this.password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1041";
-        Client client = Client.create();
-        client.addFilter(authFilter);
-        WebResource webResource = client.resource(server + restURL + configJobID);
+        WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
+
+//        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
+//        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
+//        String restURL = "/rest/jobs/start/";
+//        String configJobID = "1041";
+//        Client client = Client.create();
+//        client.addFilter(authFilter);
+//        WebResource webResource = client.resource(server + restURL + configJobID);
 
         //log time of REST call
         try{
@@ -141,9 +153,6 @@ public class defaultConfigJob implements configJob{
 
         // do REST call
         ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
-
-        log.info("REST OUTPUT: {}", response.toString());
-
 
         if (response.getStatus() != 200)
         {
