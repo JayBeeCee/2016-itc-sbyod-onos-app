@@ -32,7 +32,7 @@ public class defaultConfigJob implements configJob{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
-    private String snIP = "127.0.0.1";
+    private String snIP = "172.16.150.38";
     private String snPort = "5443";
     private StableNetConnection sn;
 
@@ -64,20 +64,12 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
 
-
-        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort + "", this.username, this.password);
+        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort, this.username, this.password);
+        log.info("StableNet server: {}", this.sn);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1039";
+        log.info("GET -> {}", this.sn.getServer() + restURL + configJobID);
         WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
-
-
-//        String server = "http://" + this.snIP.toString() + ":" + this.snPort.toString();
-//        HTTPBasicAuthFilter authFilter = new HTTPBasicAuthFilter(this.username, this.password);
-//        String restURL = "/rest/jobs/start/";
-//        String configJobID = "1039";
-//        Client client = Client.create();
-//        client.addFilter(authFilter);
-//        WebResource webResource = client.resource(server + restURL + configJobID);
 
         // log time of REST call
         try{
@@ -99,15 +91,13 @@ public class defaultConfigJob implements configJob{
         }
 
         // do REST call
-        ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
+        ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
 
         if (response.getStatus() != 200)
         {
             throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
         }
 
-        JsonParser jsonParser = new JsonParser();
-        JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
     }
 
     @Override
@@ -119,7 +109,7 @@ public class defaultConfigJob implements configJob{
         PrintWriter printWriter = null;
 
         // do prepare REST call
-        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort + "", this.username, this.password);
+        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort, this.username, this.password);
         String restURL = "/rest/jobs/start/";
         String configJobID = "1041";
         WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
@@ -152,15 +142,15 @@ public class defaultConfigJob implements configJob{
         }
 
         // do REST call
-        ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
+        ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
 
         if (response.getStatus() != 200)
         {
             throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
         }
 
-        JsonParser jsonParser = new JsonParser();
-        JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
+        //JsonParser jsonParser = new JsonParser();
+        //JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
     }
 
     @Override

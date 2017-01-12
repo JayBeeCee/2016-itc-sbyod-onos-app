@@ -12,6 +12,8 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 /**
  * Created by Bene on 12.01.17.
  */
