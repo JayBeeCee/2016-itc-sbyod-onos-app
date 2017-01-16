@@ -74,7 +74,7 @@ public class MeasurementExtension implements Measurement{
                 printWriter.flush();
                 printWriter.close();
                 //TODO make this flag REST accessable
-                //measurementObj.setFlag(true);
+                setFlag(true);
             }
         }
     }
@@ -101,7 +101,7 @@ public class MeasurementExtension implements Measurement{
                 printWriter.flush();
                 printWriter.close();
                 //TODO make this flag REST accessable
-                //measurementObj.setFlag(true);
+                //setFlag(false);
             }
         }
 

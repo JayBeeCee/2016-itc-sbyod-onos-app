@@ -28,6 +28,7 @@ import org.onosproject.net.Host;
 import org.onosproject.net.host.HostService;
 import org.onosproject.rest.AbstractWebResource;
 
+import org.sardineproject.sbyod.cmd.CmdProcessBuilder;
 import org.sardineproject.sbyod.configJob.configJob;
 import org.sardineproject.sbyod.measurement.Measurement;
 import org.sardineproject.sbyod.measurement.MeasurementExtension;
@@ -222,51 +223,29 @@ public class AppWebUser extends AbstractWebResource {
             }
         }
 
-        // measurement time logging
-
-        // create file if not existing and log current time in first line
-//        String status = "connected";
-//
-//        PrintWriter printWriter = null;
-//        String csvSeparator = ",";
-//        Measurement measurementObj = get(Measurement.class);
-//        String logFile = measurementObj.getLogFile();
-//        log.debug("AppWebUser_POST: LogFile: {}", logFile);
-//        File file = new File(logFile);
-//
-//        try{
-//            if(file.exists()){
-//                // write request timestamp to logFile
-//                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-//                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-//                printWriter.write(status);
-//                printWriter.write(csvSeparator);
-//                printWriter.write(currentTime);
-//                printWriter.write(csvSeparator);
-//            }
-//        } catch(IOException ioex) {
-//            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
-//        } finally {
-//            if(printWriter != null) {
-//                printWriter.flush();
-//                printWriter.close();
-//
-//                // enable AppWebConnectionClass to write next polling time once
-//                //Measurement extension = get(Measurement.class);
-//
-//                // TODO make this flag REST accessable
-//                //measurementObj.setFlag(true);
-//            }
-//        }
 
         // measurement time logging
         Measurement measurement = get(Measurement.class);
         boolean status_connected = true;
         measurement.logStartTime(status_connected);
 
+
+        //         Pushing Mode
         // trigger config job establish in StableNet
-        configJob configJob = get(configJob.class);
-        configJob.startConfigJob_conEstablish();
+        //configJob configJob = get(configJob.class);
+        //configJob.startConfigJob_conEstablish();
+
+
+        //          Direct Mode
+        // trigger config job from ONOS machine
+        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configConnect.sh");
+        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
+        if(scriptExecSuccess == true){
+            log.info("AppWebUser: Script execution success");
+        } else {
+            log.info("AppWebUser: Script execution failes");
+        }
+
 
 
         return Response.ok(ENABLED_TRUE).build();
@@ -323,41 +302,6 @@ public class AppWebUser extends AbstractWebResource {
             }
         }
 
-        // create file if not existing and log current time in first line
-//        String status = "disconnected";
-//        PrintWriter printWriter = null;
-//        String csvSeparator = ",";
-//        Measurement measurementObj = get(Measurement.class);
-//        String logFile = measurementObj.getLogFile();
-//        log.debug("AppWebUser_DEL: LogFile: {}", logFile);
-//        File file = new File(logFile);
-//
-//        try{
-//            if(file.exists()) {
-//                // write request timestamp to logFile
-//                String currentTime = new SimpleDateFormat("HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
-//                printWriter = new PrintWriter((new FileOutputStream(logFile, true)));
-//                printWriter.write(status);
-//                printWriter.write(csvSeparator);
-//                printWriter.write(currentTime);
-//                printWriter.write(csvSeparator);
-//            } else {
-//                log.debug("AppWebUser: File does not exist");
-//            }
-//        } catch(IOException ioex) {
-//            log.debug("AppWebUser: Error while writing time into csv file: {}", ioex);
-//        } finally {
-//            if(printWriter != null) {
-//                printWriter.flush();
-//                printWriter.close();
-//
-//                // enable AppWebConnectionClass to write next polling time once
-//                //Measurement extension = get(Measurement.class);
-//
-//                //TODO make this flag REST accessable
-//                //measurementObj.setFlag(true);
-//            }
-//        }
 
         // time logging
         Measurement measurement = get(Measurement.class);
@@ -365,8 +309,19 @@ public class AppWebUser extends AbstractWebResource {
         measurement.logStartTime(status_connected);
 
         // trigger config job establish in StableNet
-        configJob configJob = get(configJob.class);
-        configJob.startConfigJob_conRemove();
+        //configJob configJob = get(configJob.class);
+        //configJob.startConfigJob_conRemove();
+
+        //          Direct Mode
+        // trigger config job from ONOS machine
+        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configDisconnect.sh");
+        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
+        if(scriptExecSuccess == true){
+            log.info("AppWebUser: Script execution success");
+        } else {
+            log.info("AppWebUser: Script execution failes");
+        }
+
 
         return Response.ok(ENABLED_FALSE).build();
     }
