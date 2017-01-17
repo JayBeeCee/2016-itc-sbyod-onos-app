@@ -67,8 +67,8 @@ public class defaultConfigJob implements configJob{
 
 
         // time logging
-        Measurement measurement = get(Measurement.class);
-        measurement.logEndTime();
+        //Measurement measurement = get(Measurement.class);
+        //measurement.logEndTime();
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
@@ -99,8 +99,8 @@ public class defaultConfigJob implements configJob{
 //        WebResource webResource = client.resource(server + restURL + configJobID);
 
         // time logging
-        Measurement measurement = get(Measurement.class);
-        measurement.logEndTime();
+        //Measurement measurement = get(Measurement.class);
+        //measurement.logEndTime();
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
@@ -112,6 +112,30 @@ public class defaultConfigJob implements configJob{
 
         //JsonParser jsonParser = new JsonParser();
         //JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
+    }
+
+    @Override
+    public void startDiscoveryJob(){
+
+        this.sn = new StableNetConnection("https://" + this.snIP + ":" + this.snPort, this.username, this.password);
+        log.info("StableNet server: {}", this.sn);
+        String restURL = "/rest/jobs/start/";
+        String configJobID = "1038";
+        log.info("GET -> {}", this.sn.getServer() + restURL + configJobID);
+        WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
+
+
+        // time logging
+        //Measurement measurement = get(Measurement.class);
+        //measurement.logEndTime();
+
+        // do REST call
+        ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
+
+        if (response.getStatus() != 200)
+        {
+            throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
+        }
     }
 
     @Override

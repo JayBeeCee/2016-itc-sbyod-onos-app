@@ -229,22 +229,28 @@ public class AppWebUser extends AbstractWebResource {
         boolean status_connected = true;
         measurement.logStartTime(status_connected);
 
+        //         Pushing Mode
+        // trigger dicsovery job  in StableNet
+        configJob configJob = get(configJob.class);
+        configJob.startDiscoveryJob();
 
         //         Pushing Mode
         // trigger config job establish in StableNet
         //configJob configJob = get(configJob.class);
-        //configJob.startConfigJob_conEstablish();
+        configJob.startConfigJob_conEstablish();
+
+
 
 
         //          Direct Mode
         // trigger config job from ONOS machine
-        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configConnect.sh");
-        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
-        if(scriptExecSuccess == true){
-            log.info("AppWebUser: Script execution success");
-        } else {
-            log.info("AppWebUser: Script execution failes");
-        }
+//        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configConnect.sh");
+//        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
+//        if(scriptExecSuccess == true){
+//            log.debug("AppWebUser: Script execution success");
+//        } else {
+//            log.debug("AppWebUser: Script execution failes");
+//        }
 
 
 
@@ -308,19 +314,25 @@ public class AppWebUser extends AbstractWebResource {
         boolean status_connected = false;
         measurement.logStartTime(status_connected);
 
+
+        //         Pushing Mode
+        // trigger dicsovery job  in StableNet
+        configJob configJob = get(configJob.class);
+        configJob.startDiscoveryJob();
+
         // trigger config job establish in StableNet
         //configJob configJob = get(configJob.class);
-        //configJob.startConfigJob_conRemove();
+        configJob.startConfigJob_conRemove();
 
         //          Direct Mode
         // trigger config job from ONOS machine
-        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configDisconnect.sh");
-        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
-        if(scriptExecSuccess == true){
-            log.info("AppWebUser: Script execution success");
-        } else {
-            log.info("AppWebUser: Script execution failes");
-        }
+//        CmdProcessBuilder cmdBuilder = new CmdProcessBuilder("/home/vagrant/direct/configDisconnect.sh");
+//        boolean scriptExecSuccess = cmdBuilder.cmdExecute();
+//        if(scriptExecSuccess == true){
+//            log.info("AppWebUser: Script execution success");
+//        } else {
+//            log.info("AppWebUser: Script execution failes");
+//        }
 
 
         return Response.ok(ENABLED_FALSE).build();

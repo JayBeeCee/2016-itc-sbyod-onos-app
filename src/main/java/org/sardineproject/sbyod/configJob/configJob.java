@@ -10,5 +10,7 @@ public interface configJob{
 
     void startConfigJob_conRemove();
 
+    void startDiscoveryJob();
+
     boolean setStableNetIp_Port(String stableNetIP, String stableNetPort);
 }
