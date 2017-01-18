@@ -231,12 +231,12 @@ public class AppWebUser extends AbstractWebResource {
 
         //         Pushing Mode
         // trigger dicsovery job  in StableNet
-        configJob configJob = get(configJob.class);
-        configJob.startDiscoveryJob();
+        //configJob configJob = get(configJob.class);
+        //configJob.startDiscoveryJob();
 
         //         Pushing Mode
         // trigger config job establish in StableNet
-        //configJob configJob = get(configJob.class);
+        configJob configJob = get(configJob.class);
         configJob.startConfigJob_conEstablish();
 
 
