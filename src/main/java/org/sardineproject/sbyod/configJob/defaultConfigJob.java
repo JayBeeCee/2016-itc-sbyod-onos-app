@@ -65,13 +65,13 @@ public class defaultConfigJob implements configJob{
         log.info("GET -> {}", this.sn.getServer() + restURL + configJobID);
         WebResource webResource = this.sn.getClient().resource(this.sn.getServer() + restURL + configJobID);
 
-
         // time logging
-        //Measurement measurement = get(Measurement.class);
-        //measurement.logEndTime();
+        Measurement measurement = get(Measurement.class);
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
+
+        measurement.logEndTime();
 
         if (response.getStatus() != 200)
         {
@@ -99,16 +99,20 @@ public class defaultConfigJob implements configJob{
 //        WebResource webResource = client.resource(server + restURL + configJobID);
 
         // time logging
-        //Measurement measurement = get(Measurement.class);
+        Measurement measurement = get(Measurement.class);
         //measurement.logEndTime();
 
         // do REST call
         ClientResponse response = webResource.accept("application/xml").get(ClientResponse.class);
 
+        measurement.logEndTime();
+
         if (response.getStatus() != 200)
         {
             throw new RuntimeException("Connection Failed - HTTP error code: " + response.getStatus());
         }
+
+
 
         //JsonParser jsonParser = new JsonParser();
         //JsonObject garbage = jsonParser.parse(response.getEntity(String.class)).getAsJsonObject();
