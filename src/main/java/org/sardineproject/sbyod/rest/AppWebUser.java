@@ -225,9 +225,9 @@ public class AppWebUser extends AbstractWebResource {
 
 
         // measurement time logging
-        Measurement measurement = get(Measurement.class);
-        boolean status_connected = true;
-        measurement.logStartTime(status_connected);
+        //Measurement measurement = get(Measurement.class);
+        //boolean status_connected = true;
+        //measurement.logStartTime(status_connected);
 
         //         Pushing Mode
         // trigger dicsovery job  in StableNet
@@ -236,8 +236,8 @@ public class AppWebUser extends AbstractWebResource {
 
         //         Pushing Mode
         // trigger config job establish in StableNet
-        configJob configJob = get(configJob.class);
-        configJob.startConfigJob_conEstablish();
+        //configJob configJob = get(configJob.class);
+        //configJob.startConfigJob_conEstablish();
 
 
 
@@ -310,9 +310,9 @@ public class AppWebUser extends AbstractWebResource {
 
 
         // time logging
-        Measurement measurement = get(Measurement.class);
-        boolean status_connected = false;
-        measurement.logStartTime(status_connected);
+        //Measurement measurement = get(Measurement.class);
+        //boolean status_connected = false;
+        //measurement.logStartTime(status_connected);
 
 
         //         Pushing Mode
@@ -320,9 +320,9 @@ public class AppWebUser extends AbstractWebResource {
         //configJob configJob = get(configJob.class);
         //configJob.startDiscoveryJob();
 
-        // trigger config job establish in StableNet
-        configJob configJob = get(configJob.class);
-        configJob.startConfigJob_conRemove();
+        // trigger config job remove in StableNet
+        //configJob configJob = get(configJob.class);
+        //configJob.startConfigJob_conRemove();
 
         //          Direct Mode
         // trigger config job from ONOS machine
