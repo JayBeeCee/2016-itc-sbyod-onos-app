@@ -236,8 +236,8 @@ public class AppWebUser extends AbstractWebResource {
 
         //         Pushing Mode
         // trigger config job establish in StableNet
-        //configJob configJob = get(configJob.class);
-        //configJob.startConfigJob_conEstablish();
+        configJob configJob = get(configJob.class);
+        configJob.startConfigJob_conEstablish();
 
 
 
@@ -321,8 +321,8 @@ public class AppWebUser extends AbstractWebResource {
         //configJob.startDiscoveryJob();
 
         // trigger config job remove in StableNet
-        //configJob configJob = get(configJob.class);
-        //configJob.startConfigJob_conRemove();
+        configJob configJob = get(configJob.class);
+        configJob.startConfigJob_conRemove();
 
         //          Direct Mode
         // trigger config job from ONOS machine
