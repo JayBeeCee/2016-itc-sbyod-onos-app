@@ -32,7 +32,7 @@ public class defaultConfigJob implements configJob{
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     public ApplicationId appId;
-    private String snIP = "172.16.150.42";
+    private String snIP = "127.0.0.1";
     private String snPort = "5443";
     private StableNetConnection sn;
 
