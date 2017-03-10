@@ -252,14 +252,6 @@ public class AppWebUser extends AbstractWebResource {
             log.debug("AppWebUser: Script execution failes");
         }
 
-        CmdProcessBuilder cmdBuilder2 = new CmdProcessBuilder("/home/vagrant/direct/configConnect2.sh");
-        boolean scriptExecSuccess2 = cmdBuilder2.cmdExecute();
-        if(scriptExecSuccess2 == true){
-            log.debug("AppWebUser: Script execution success");
-        } else {
-            log.debug("AppWebUser: Script execution failes");
-        }
-
 
 
         return Response.ok(ENABLED_TRUE).build();
@@ -341,16 +333,7 @@ public class AppWebUser extends AbstractWebResource {
         } else {
             log.info("AppWebUser: Script execution failes");
         }
-
-        CmdProcessBuilder cmdBuilder2 = new CmdProcessBuilder("/home/vagrant/direct/configDisconnect2.sh");
-        boolean scriptExecSuccess2 = cmdBuilder2.cmdExecute();
-        if(scriptExecSuccess2 == true){
-            log.debug("AppWebUser: Script execution success");
-        } else {
-            log.debug("AppWebUser: Script execution failes");
-        }
-
-
+        
 
         return Response.ok(ENABLED_FALSE).build();
     }
