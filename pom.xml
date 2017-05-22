@@ -194,9 +194,10 @@
                         </Include-Resource>
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
-                            *
-                            <!--org.osgi.framework,
-                            com.sun.jersey.api.core,
+                            *,
+                            org.osgi.framework,
+                            com.sun.jersey.spi.container.servlet
+                            <!--com.sun.jersey.api.core,
                             com.sun.jersey.spi.container.servlet,
                             com.sun.jersey.server.impl.container.servlet,
                             com.fasterxml.jackson.core -->
