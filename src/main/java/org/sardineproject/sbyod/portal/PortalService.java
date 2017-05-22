@@ -17,7 +17,7 @@
  */
 package org.sardineproject.sbyod.portal;
 
-import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider;
+//import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider;
 import org.onlab.packet.Ip4Address;
 import org.onlab.packet.IpAddress;
 import org.onlab.packet.MacAddress;
