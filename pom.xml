@@ -19,7 +19,7 @@
 
     <groupId>org.sardineproject</groupId>
     <artifactId>sbyod</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>bundle</packaging>
 
     <description>Bring your own device application of the sardine project</description>
@@ -27,7 +27,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <onos.version>1.5.1</onos.version>
+        <onos.version>1.9.0</onos.version>
         <onos.app.name>org.sardineproject.sbyod</onos.app.name>
         <onos.app.origin>Sardine Project</onos.app.origin>
         <onos.app.title>Sardine-BYOD Application</onos.app.title>
