@@ -192,18 +192,16 @@
                             {maven-resources},
                             {maven-dependencies}
                         </Include-Resource>
-                        <Embed-Dependency>
-                            com.sun.jersey;scope=compile
-                        </Embed-Dependency>
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
-                            com.sun.jersey.*,
+                            *,
+                            <!--
                             com.sun.jersey.api.core,
                             org.osgi.framework,
-                            org.osgi.core,
                             com.sun.jersey.spi.container.servlet,
                             com.sun.jersey.server.impl.container.servlet,
                             com.fasterxml.jackson.core
+                            -->
                         </Import-Package>
                         <Web-ContextPath>${web.context}</Web-ContextPath>
                     </instructions>
