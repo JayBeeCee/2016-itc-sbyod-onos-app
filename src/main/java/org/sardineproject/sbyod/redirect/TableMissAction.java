@@ -19,7 +19,7 @@ package org.sardineproject.sbyod.redirect;
 
 import com.google.common.collect.Maps;
 import org.apache.felix.scr.annotations.*;
-import org.onosproject.core.ApplicationIdStore;
+import org.onosproject.app.ApplicationIdStore;
 import org.onosproject.net.*;
 import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.flow.*;

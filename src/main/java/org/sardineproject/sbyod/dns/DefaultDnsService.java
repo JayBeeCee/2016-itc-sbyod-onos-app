@@ -21,7 +21,7 @@ import org.apache.felix.scr.annotations.*;
 import org.onlab.packet.IPv4;
 import org.onlab.packet.IpAddress;
 import org.onlab.packet.TpPort;
-import org.onosproject.core.ApplicationIdStore;
+import org.onosproject.app.ApplicationIdStore;
 import org.onosproject.net.Host;
 import org.onosproject.net.config.NetworkConfigRegistry;
 import org.onosproject.net.host.HostEvent;

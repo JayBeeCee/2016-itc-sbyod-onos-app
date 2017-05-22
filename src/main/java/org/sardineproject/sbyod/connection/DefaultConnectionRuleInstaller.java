@@ -25,7 +25,7 @@ import org.apache.felix.scr.annotations.ReferenceCardinality;
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.onlab.packet.*;
-import org.onosproject.core.ApplicationIdStore;
+import org.onosproject.app.ApplicationIdStore;
 import org.onosproject.net.*;
 import org.onosproject.net.config.NetworkConfigRegistry;
 import org.onosproject.net.flow.*;

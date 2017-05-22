@@ -20,7 +20,7 @@ package org.sardineproject.sbyod.redirect;
 import com.google.common.collect.Lists;
 import org.apache.felix.scr.annotations.*;
 import org.onlab.packet.*;
-import org.onosproject.core.ApplicationIdStore;
+import org.onosproject.app.ApplicationIdStore;
 import org.onosproject.net.*;
 import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.flow.DefaultTrafficSelector;
