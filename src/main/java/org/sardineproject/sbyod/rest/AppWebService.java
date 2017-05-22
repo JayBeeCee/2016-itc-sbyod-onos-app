@@ -20,6 +20,7 @@ package org.sardineproject.sbyod.rest;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import org.onlab.packet.IPv4;
 import org.onlab.packet.Ip4Address;
 import org.onlab.packet.TpPort;
 import org.onosproject.rest.AbstractWebResource;
@@ -96,27 +97,34 @@ public class AppWebService extends AbstractWebResource {
      * Create a new service.
      *
      * @param ip_ Ip address of the host of the service
+     * @param protocol_ The transport protocol of the service
      * @param tpPort_ The transport protocol port of the service
      * @param name_ The name of the service
      * @return PRECONDITION_FAILED if some parameter was wrong
      */
     @POST
-    @Path("/ip/{ip}/tpPort/{tpPort}/name/{name}")
+    @Path("/ip/{ip}/protocol/{protocol}/tpPort/{tpPort}/name/{name}")
     public Response setServices(@PathParam("ip") String ip_,
+                                @PathParam("protocol") String protocol_,
                                 @PathParam("tpPort") String tpPort_,
                                 @PathParam("name") String name_){
-        log.debug("AppWebService: Adding service with ip={}, tpPort={} and name={}",
-                Lists.newArrayList(ip_,tpPort_,name_).toArray());
+        log.debug("AppWebService: Adding service with ip={}, protocol={}, tpPort={} and name={}",
+                Lists.newArrayList(ip_,protocol_,tpPort_,name_).toArray());
 
-        if(ip_ == null || tpPort_ == null || name_ == null){
+        if(ip_ == null || protocol_ == null || tpPort_ == null || name_ == null){
             return Response.status(Response.Status.PRECONDITION_FAILED).build();
         }
 
         Ip4Address ip;
+        byte protocol;
         TpPort tpPort;
         String name;
         try{
             ip = Ip4Address.valueOf(ip_);
+            if( protocol_.equals("udp") || protocol_.equals("UDP"))
+                protocol = IPv4.PROTOCOL_UDP;
+            else
+                protocol = IPv4.PROTOCOL_TCP;
             tpPort = TpPort.tpPort(Integer.valueOf(tpPort_));
             name = name_;
         } catch (Exception e){
@@ -125,6 +133,7 @@ public class AppWebService extends AbstractWebResource {
 
         // define the service
             Service service = DefaultService.builder()
+                    .withProtocol(protocol)
                     .withPort(tpPort)
                     .withName(name)
                     .withIp(Sets.newHashSet(ip))
