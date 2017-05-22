@@ -211,9 +211,9 @@
                         <Import-Package>
                             *,
                             org.osgi.framework,
-                            com.sun.jersey.api.core,
-                            com.sun.jersey.spi.container.servlet,
-                            com.sun.jersey.server.impl.container.servlet,
+                            org.glassfish.jersey.api.core,
+                            org.glassfish.jersey.spi.container.servlet,
+                            org.glassfish.jersey.server.impl.container.servlet,
                             com.fasterxml.jackson.core
                         </Import-Package>
                         <Web-ContextPath>${web.context}</Web-ContextPath>
