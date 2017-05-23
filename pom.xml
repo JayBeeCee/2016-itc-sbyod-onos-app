@@ -210,11 +210,15 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             *,
+                            org.glassfish.jersey.servlet,
+                            org.glassfish.jersey.*
+                            <!--
                             org.osgi.framework,
                             org.glassfish.jersey.api.core,
                             org.glassfish.jersey.spi.container.servlet,
                             org.glassfish.jersey.server.impl.container.servlet,
                             com.fasterxml.jackson.core
+                            -->
                         </Import-Package>
                         <Web-ContextPath>${web.context}</Web-ContextPath>
                     </instructions>
