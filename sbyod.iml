@@ -7,7 +7,7 @@
           <property key="Bundle-Description" value="Bring your own device application of the sardine project" />
           <property key="-wab" value="src/main/webapp/" />
           <property key="Include-Resource" value="WEB-INF/classes/apidoc/swagger.json=target/swagger.json,OSGI-INF/blueprint/shell-config.xml=$MODULE_DIR$/src/main/resources/OSGI-INF/blueprint/shell-config.xml" />
-          <property key="Import-Package" value="*,org.slf4j,org.osgi.framework,javax.ws.rs,java.ws.rs.core,org.glassfish.jersey,org.glassfish.jersey.servlet,org.onlab.packet.*,org.onlab.rest.*,org.onosproject.*" />
+          <property key="Import-Package" value="*,org.osgi.framework,javax.ws.rs,java.ws.rs.core,org.glassfish.jersey,org.glassfish.jersey.servlet,org.onlab.packet.*,org.onlab.rest.*,org.onosproject.*" />
           <property key="Web-ContextPath" value="/onos/sbyod" />
           <property key="Bundle-Name" value="sbyod" />
         </additionalProperties>
@@ -136,7 +136,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-epoll:4.1.5.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:5.0.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.compendium:5.0.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.service.component:1.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.osgi:org.osgi.service.component:1.3.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.karaf.shell:org.apache.karaf.shell.console:3.0.8" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: jline:jline:2.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.fusesource.jansi:jansi:1.11" level="project" />
