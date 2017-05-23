@@ -210,8 +210,14 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             *,
+                            org.slf4j,
+                            org.osgi.framework,
+                            javax.ws.rs,java.ws.rs.core,
+                            org.glassfish.jersey,
                             org.glassfish.jersey.servlet,
-                            org.glassfish.jersey.*
+                            org.onlab.packet.*,
+                            org.onlab.rest.*,
+                            org.onosproject.*
                             <!--
                             org.osgi.framework,
                             org.glassfish.jersey.api.core,
