@@ -211,7 +211,6 @@
                         <Import-Package>
                             *,
                             org.osgi.framework,
-                            javax.ws.rs,java.ws.rs.core,
                             org.glassfish.jersey,
                             org.glassfish.jersey.servlet,
                             org.onlab.packet.*,

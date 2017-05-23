@@ -7,7 +7,7 @@
           <property key="Bundle-Description" value="Bring your own device application of the sardine project" />
           <property key="-wab" value="src/main/webapp/" />
           <property key="Include-Resource" value="WEB-INF/classes/apidoc/swagger.json=target/swagger.json,OSGI-INF/blueprint/shell-config.xml=$MODULE_DIR$/src/main/resources/OSGI-INF/blueprint/shell-config.xml" />
-          <property key="Import-Package" value="*,org.osgi.framework,javax.ws.rs,java.ws.rs.core,org.glassfish.jersey,org.glassfish.jersey.servlet,org.onlab.packet.*,org.onlab.rest.*,org.onosproject.*" />
+          <property key="Import-Package" value="*,org.osgi.framework,org.glassfish.jersey,org.glassfish.jersey.servlet,org.onlab.packet.*,org.onlab.rest.*,org.onosproject.*" />
           <property key="Web-ContextPath" value="/onos/sbyod" />
           <property key="Bundle-Name" value="sbyod" />
         </additionalProperties>
