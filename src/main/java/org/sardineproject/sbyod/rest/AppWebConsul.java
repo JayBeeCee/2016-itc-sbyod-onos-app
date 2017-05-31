@@ -33,11 +33,7 @@ import org.sardineproject.sbyod.service.Service;
 import org.sardineproject.sbyod.service.ServiceStore;
 import org.slf4j.Logger;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
@@ -66,7 +62,9 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip/{ip}/tpPort/{tpPort}")
-    public Response postConsul(@PathParam("ip") String ip_,
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response postConsul(
+            @PathParam("ip") String ip_,
                                @PathParam("tpPort") String tpPort_){
         log.debug("AppWebConsul: Connecting to consul on {}", ""+ip_+":"+tpPort_);
 
@@ -98,9 +96,11 @@ public class AppWebConsul extends AbstractWebResource{
      * @return "enabled: true" if connection to server is active
      */
     @POST
-    @Path("/ip/{ip}")
+    @Path("/ip2/{ip}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response postConsul( @PathParam("ip") String ip_){
-        log.debug("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
+        log.error("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
 
         if(ip_ == null){
             return Response.status(Response.Status.PRECONDITION_FAILED).build();
