@@ -155,7 +155,6 @@
             <version>${jackson.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -217,7 +216,8 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             *,
-                            org.glassfish.jersey.servlet
+                            org.glassfish.jersey.servlet,
+                            org.glassfish.jersey.*
                             <!--
                             org.osgi.framework,
                             org.glassfish.jersey.api.core,
