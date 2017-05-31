@@ -63,7 +63,7 @@ public class AppWebService extends AbstractWebResource {
      * @return array of services
      */
     @GET
-    @Path("")
+    @Path("/")
     public Response getServices(){
         log.debug("AppWebUser: Getting all services");
 

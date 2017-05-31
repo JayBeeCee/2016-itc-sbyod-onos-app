@@ -17,19 +17,28 @@
  */
 package org.sardineproject.sbyod.rest;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.collect.Sets;
 import org.onlab.packet.Ip4Address;
 import org.onlab.packet.TpPort;
+import org.onosproject.net.Host;
+import org.onosproject.net.host.HostService;
 import org.onosproject.rest.AbstractWebResource;
+import org.sardineproject.sbyod.connection.ConnectionStore;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.sardineproject.sbyod.consul.ConsulService;
+import org.sardineproject.sbyod.service.Service;
+import org.sardineproject.sbyod.service.ServiceStore;
 import org.slf4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
-import java.io.InputStream;
+
+import java.util.Set;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -86,7 +95,6 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip/{ip}")
-    @Produces(MediaType.TEXT_PLAIN)
     public Response postConsul( @PathParam("ip") String ip_){
         log.debug("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
 
@@ -112,6 +120,16 @@ public class AppWebConsul extends AbstractWebResource{
             return Response.ok(ENABLED_FALSE).build();
         }
     }
+
+    @GET
+    @Path("/{schinken}")
+    public Response getUserRules(@PathParam("schinken") String userIp_){
+        log.debug("AppWebUser: Getting services for userIp = {}", userIp_);
+
+        return Response.ok(ENABLED_TRUE).build();
+
+    }
+
 
     /**
      * Disconnecting from Consul as service discovery client.
