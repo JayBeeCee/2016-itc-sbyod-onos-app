@@ -216,8 +216,7 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             *,
-                            org.glassfish.jersey.servlet,
-                            org.glassfish.jersey.*
+                            org.glassfish.jersey.servlet
                             <!--
                             org.osgi.framework,
                             org.glassfish.jersey.api.core,
