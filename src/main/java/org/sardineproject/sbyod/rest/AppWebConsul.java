@@ -25,11 +25,9 @@ import org.sardineproject.sbyod.portal.PortalManager;
 import org.sardineproject.sbyod.consul.ConsulService;
 import org.slf4j.Logger;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.MediaType;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -86,6 +84,7 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip/{ip}")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response postConsul(@PathParam("ip") String ip_){
         log.debug("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
 
