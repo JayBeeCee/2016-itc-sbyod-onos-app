@@ -19,7 +19,7 @@
 
     <groupId>org.sardineproject</groupId>
     <artifactId>sbyod</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <packaging>bundle</packaging>
 
     <description>Bring your own device application of the sardine project</description>
