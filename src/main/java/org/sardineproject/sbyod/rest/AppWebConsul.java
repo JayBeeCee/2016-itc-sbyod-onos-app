@@ -68,7 +68,7 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip/{ip}/tpPort/{tpPort}")
-    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_HTML)
     public Response postConsul(
             @PathParam("ip") String ip_,
                                @PathParam("tpPort") String tpPort_){
@@ -103,10 +103,10 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip2/{ip}")
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes("text/html,text/plain,application/json,application/cxml")
+    @Produces("text/html,text/plain,application/json,application/cxml")
     public Response postConsul( @PathParam("ip") String ip_){
-        log.error("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
+        log.debug("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
 
         if(ip_ == null){
             return Response.status(Response.Status.PRECONDITION_FAILED).build();
