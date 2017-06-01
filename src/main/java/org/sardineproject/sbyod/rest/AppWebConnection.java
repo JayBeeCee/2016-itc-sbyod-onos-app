@@ -13,8 +13,10 @@ import org.sardineproject.sbyod.connection.ConnectionStore;
 import org.sardineproject.sbyod.portal.PortalManager;
 import org.slf4j.Logger;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import java.util.HashSet;
@@ -44,6 +46,8 @@ public class AppWebConnection extends AbstractWebResource {
      */
     @GET
     @Path("")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response getServices(){
         log.debug("AppWebUser: Getting all active connections");
         connectionStore = get(ConnectionStore.class);

@@ -68,7 +68,8 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip/{ip}/tpPort/{tpPort}")
-    @Produces(MediaType.TEXT_HTML)
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response postConsul(
             @PathParam("ip") String ip_,
                                @PathParam("tpPort") String tpPort_){
@@ -102,7 +103,7 @@ public class AppWebConsul extends AbstractWebResource{
      * @return "enabled: true" if connection to server is active
      */
     @POST
-    @Path("/ip2/{ip}")
+    @Path("/ip/{ip}")
     @Consumes("text/html,text/plain,application/json,application/xml")
     @Produces("text/html,text/plain,application/json,application/xml")
     public Response postConsul( @PathParam("ip") String ip_){
@@ -131,21 +132,12 @@ public class AppWebConsul extends AbstractWebResource{
         }
     }
 
-    @GET
-    @Path("/{schinken}")
-    public Response getUserRules(@PathParam("schinken") String userIp_){
-        log.debug("AppWebUser: Getting services for userIp = {}", userIp_);
-
-        return Response.ok(ENABLED_TRUE).build();
-
-    }
-
-
     /**
      * Disconnecting from Consul as service discovery client.
      */
     @DELETE
-    @Path("/delete")
+    @Path("/")
+    @Consumes("text/html,text/plain,application/json,application/xml")
     public Response deactivateConsul(){
         log.debug("AppWebConsul: Deactivating consul service discovery");
 

@@ -38,6 +38,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import java.util.Set;
@@ -64,6 +66,8 @@ public class AppWebService extends AbstractWebResource {
      */
     @GET
     @Path("")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response getServices(){
         log.debug("AppWebUser: Getting all services");
 
@@ -81,6 +85,8 @@ public class AppWebService extends AbstractWebResource {
      */
     @GET
     @Path("/{serviceId}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response getService(@PathParam("serviceId") String serviceId_){
         log.debug("AppWebUser: Getting service with name = {}", serviceId_);
 
@@ -104,6 +110,8 @@ public class AppWebService extends AbstractWebResource {
      */
     @POST
     @Path("/ip/{ip}/protocol/{protocol}/tpPort/{tpPort}/name/{name}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response setServices(@PathParam("ip") String ip_,
                                 @PathParam("protocol") String protocol_,
                                 @PathParam("tpPort") String tpPort_,
@@ -159,6 +167,7 @@ public class AppWebService extends AbstractWebResource {
      */
     @DELETE
     @Path("/{serviceId}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
     public Response deleteService(@PathParam("serviceId") String id_){
 
         log.debug("AppWebService: Deleting service with id={}.", id_);

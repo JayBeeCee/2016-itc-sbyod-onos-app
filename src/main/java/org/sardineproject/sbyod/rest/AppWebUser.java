@@ -44,6 +44,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.security.InvalidParameterException;
 import java.util.Set;
@@ -70,6 +72,8 @@ public class AppWebUser extends AbstractWebResource {
      */
     @GET
     @Path("/{userIp}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response getUserRules(@PathParam("userIp") String userIp_){
         log.debug("AppWebUser: Getting services for userIp = {}", userIp_);
 
@@ -127,6 +131,8 @@ public class AppWebUser extends AbstractWebResource {
      */
     @GET
     @Path("/{userIp}/service/{serviceId}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response getUserServices(@PathParam("userIp") String userIp_,
                                     @PathParam("serviceId") String serviceId_){
         log.debug("AppWebUser: Getting rules for userIp = {} and serviceId = {}", userIp_, serviceId_);
@@ -169,6 +175,8 @@ public class AppWebUser extends AbstractWebResource {
      */
     @POST
     @Path("/{userIp}/service/{serviceId}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response allowHostTraffic(@PathParam("userIp") String userIp_,
                                     @PathParam("serviceId") String serviceId_){
         log.debug("AppWebUser: Adding connection between user ip = {} and serviceId = {}",
@@ -225,6 +233,8 @@ public class AppWebUser extends AbstractWebResource {
      */
     @DELETE
     @Path("/{userIp}/service/{serviceId}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response deleteHostTraffic(@PathParam("userIp") String userIp_,
                                       @PathParam("serviceId") String serviceId_){
         log.debug("AppWebUser: Removing connection between user ip = {} and serviceId = {}",
@@ -278,6 +288,7 @@ public class AppWebUser extends AbstractWebResource {
      */
     @DELETE
     @Path("/{userIp}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
     public Response resetHostTraffic(@PathParam("userIp") String userIp_){
         log.debug("AppWebUser: Removing all connections of user with ip = {}.", userIp_);
 

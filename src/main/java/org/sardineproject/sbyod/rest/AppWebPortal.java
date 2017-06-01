@@ -28,6 +28,8 @@ import org.sardineproject.sbyod.portal.PortalService;
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Response;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -52,6 +54,8 @@ public class AppWebPortal extends AbstractWebResource {
      */
     @POST
     @Path("/ip/{ip}/port/{port}")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response setPortal(@PathParam("ip") String ip,
                               @PathParam("port") String port) {
         log.debug("AppWebPortal: Adding portal with IP = {} and port = {}", ip, port);
