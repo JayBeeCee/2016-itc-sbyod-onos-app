@@ -103,8 +103,8 @@ public class AppWebConsul extends AbstractWebResource{
      */
     @POST
     @Path("/ip2/{ip}")
-    @Consumes("text/html,text/plain,application/json,application/cxml")
-    @Produces("text/html,text/plain,application/json,application/cxml")
+    @Consumes("text/html,text/plain,application/json,application/xml")
+    @Produces("text/html,text/plain,application/json,application/xml")
     public Response postConsul( @PathParam("ip") String ip_){
         log.debug("AppWebConsul: Connecting to consul on {}, port 8500", ip_);
 
